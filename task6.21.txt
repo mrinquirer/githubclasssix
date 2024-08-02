@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+        // Creating an Employee object
+        Employee emp = new Employee(1, "John", "Doe", 5000);
+
+        // Printing initial details
+        System.out.println(emp);
+
+        // Raising salary by 10%
+        emp.raiseSalary(10);
+
+        // Printing updated details
+        System.out.println(emp);
+    }
+}
