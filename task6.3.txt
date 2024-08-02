@@ -1,0 +1,79 @@
+public class Account {
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
+
+    // No-argument constructor
+    public Account() {
+        this.accountNumber = "";
+        this.accountHolder = "";
+        this.balance = 0.0;
+    }
+
+    // Constructor with account number and holder name
+    public Account(String accountNumber, String accountHolder) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+        this.balance = 0.0;
+    }
+
+    // Getter for account number
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    // Getter for account holder
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    // Getter for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+    }
+
+    // Method to check balance
+    public void checkBalance() {
+        System.out.println("Current balance: " + balance);
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Account[accountNumber=" + accountNumber + ", accountHolder=" + accountHolder + ", balance=" + balance + "]";
+    }
+
+    // Main method to test the class
+    public static void main(String[] args) {
+        // Creating Account objects
+        Account acc1 = new Account();
+        Account acc2 = new Account("123456789", "John Doe");
+
+        // Testing deposit, withdraw and check balance
+        acc2.deposit(500);
+        acc2.checkBalance();
+        acc2.withdraw(200);
+        acc2.checkBalance();
+        acc2.withdraw(400);  // Should show insufficient funds message
+    }
+}
